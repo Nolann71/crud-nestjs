@@ -7,13 +7,14 @@ import { UserModule } from 'src/user/user.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: env.MYSQL_HOST,
+      host: env.DB_HOST,
       port: parseInt(env.MYSQL_PORT || '3306', 10),
       username: env.MYSQL_USER,
       password: env.MYSQL_PASSWORD,
@@ -23,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     AuthModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

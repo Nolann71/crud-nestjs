@@ -16,13 +16,7 @@ export class AuthController {
 
   @Post('register')
   async register(@Req() req: Request) {
-    const {
-      username,
-      password,
-    }: {
-      username: string;
-      password: string;
-    } = req.body;
+    const { username, password } = req.body;
     if (!username || !password)
       throw new BadRequestException('Username or Password missing');
     const userInput = { username, password };
