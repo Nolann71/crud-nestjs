@@ -6,7 +6,9 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('health')
-  getHello(): { status: string } {
-    return this.appService.health();
+  health(): { status: string } {
+    return {
+      status: 'ok',
+    };
   }
 }
